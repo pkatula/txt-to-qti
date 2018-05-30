@@ -152,7 +152,7 @@ sub check_shared_stimuli_in_txt {
 }
 
 #
-# the item file that defines the identifier must be located
+# the file that defines the stimulus must be located
 #
 sub need_stimulus_ident {
         my $ident = shift ;
