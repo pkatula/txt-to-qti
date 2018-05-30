@@ -19,17 +19,17 @@ path on your system. The op.manifest.pl script requires POSIX, XML::Bare, and Im
 
 Format of Item Files
 ====================
-USE stimulus_identifier (optional, to be included if a shared stimulus is used)
-Stimulus paragraph 1
-TABLE definition (or any elements that are part of the item)
-IMAGE included
-A Answer choice 1
-B Answer choice 2
-C Answer choice 3
+USE stimulus_identifier (optional, to be included if a shared stimulus is used)   
+Stimulus paragraph 1   
+TABLE definition (or any elements that are part of the item)   
+IMAGE included   
+A Answer choice 1   
+B Answer choice 2   
+C Answer choice 3   
 
 Format of Constructed Response Items
 ====================================
-USE
-Stimulus (as above)
-BUL First bulleted direction or question
-BUL Second bulleted direction of question
+USE stimulus_identifier (if required)   
+Stimulus (as above)   
+BUL First bulleted direction or question   
+BUL Second bulleted direction of question   
