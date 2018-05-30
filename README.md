@@ -23,6 +23,7 @@ USE stimulus_identifier (optional, to be included if a shared stimulus is used)
 Stimulus paragraph 1   
 TABLE definition (or any elements that are part of the item)   
 IMAGE included   
+Prompt (optional)    
 A Answer choice 1   
 B Answer choice 2   
 C Answer choice 3   
@@ -31,5 +32,6 @@ Format of Constructed Response Items
 ====================================
 USE stimulus_identifier (if required)   
 Stimulus (as above)   
+Prompt (optional)   
 BUL First bulleted direction or question   
 BUL Second bulleted direction of question   
