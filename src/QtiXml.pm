@@ -34,7 +34,6 @@ BEGIN {
                 $rubric_block_xml_template
                 $mc4_w_stimulus_xml_template
                 $cr_w_stimulus_xml_template
-                dump_ocr_xml_in_file
                 edit_txt_file
                 %manifest_template
         ) ;
@@ -223,6 +222,7 @@ sub find_identifier {
 
 #
 # consume the XML coming out of OCR
+# Note: This subroutine is not called but was used in some precursor scripts and may still be useful
 #
 sub stylize_text {
         my $s = shift ;
@@ -261,81 +261,6 @@ sub stylize_text {
         $s =~ s/(\s)(most \w+?ly)([^\<])/$1<span class="formatted_text text_decoration_underline ">$2<\/span>$3/g ;
 
         return $s ;
-}
-
-sub dump_ocr_xml_in_file {
-        my $filename_ocr_xml = shift ;
-        my $in = (( length ( $filename_ocr_xml) > 200) ? $filename_ocr_xml : (( length ( $filename_ocr_xml) < 5) ? '' : get_file_content ( $filename_ocr_xml))) ;
-
-        my $s = '' ;
-        return $s if ( length ( $in) < 5) ;
-
-        #
-        # smart quotes, etc., need to be translated to HTML
-        # &mdash; gets rejected by the XML parser: leave as is for now ... $in =~ s/\xe2\x80\x94/\&mdash;/g ;
-        $in =~ s/\xe2\x80\xa2/BUL/g ;
-        my @xml_paras = ( $in =~ m/<par.+?<\/par>/gms) ;
-
-        my @e_array = () ;
-        push @e_array, 'IGNORE OCR-SOURCE ' . ( length ( $filename_ocr_xml) > 200 ? 'XML already loaded in DB' : $filename_ocr_xml) ;
-        for my $e ( @xml_paras)  {
-                push @e_array, stylize_text ( run_paragraph ( $e)) ;
-        }
-
-        # intelligently look at the projected file
-        # ++++++++++++++++++++++++++++++++++++++++
-        #
-        # multiple choice was interpreted as a single paragraph -- take a closer look at the last three lines
-        # if it starts with an A, B, C, F, G, or H, send to rebreak
-        #
-        for my $i ( 1 .. $#e_array)  {
-                ( $e_array[$i] =~ /^(A|B|C|F|G|H)\s/) && do {
-                        $e_array[$i] = rebreak_mc ( $e_array[$i]) ;
-                }
-        }
-        #
-        # item opens with a statement like "Read the excerpt below."
-        print "* WARNING: Low Line Count " if ( $#e_array < 2) ;
-        ( $#e_array > 1 && $e_array[1] =~ m/(Read th|Study th|Look at th)\w.*/) && do {
-                $e_array[1] = 'LEAD ' . $e_array[1] ;
-                ( $e_array[1] =~ m/headline/i) && do { $e_array[2] = 'HEADLINE ' . $e_array[2] ; } ;
-                ( $e_array[1] =~ m/information/i) && do { $e_array[2] = 'BOX ' . $e_array[2] ; } ;
-                ( $e_array[1] =~ m/excerpt/i) && do { $e_array[2] = 'EXCERPT_WITH_ATTR ' . $e_array[2] ; } ;
-                ( $e_array[1] =~ m/quotation/i) && do { $e_array[2] = 'EXCERPT_WITH_ATTR ' . $e_array[2] ; } ;
-        } ;
-
-        #
-        # dump to the return string
-        for my $elt ( @e_array)  {
-                $elt =~ s/^\s*00\s*$// ;
-                $elt =~ s/^\s*CR\s*$//g ;
-                $elt =~ s/^\s*ClT\s*// ;
-                $elt =~ s/^\s+//g ;
-                $elt =~ s/\s+$//g ;
-                $elt =~ s/\s{2,}/ /g;
-                $s .= "$elt\n" if ( $elt =~ m/\S/) ;    # don't write out blank lines
-        }
-
-        return $s ;
-}
-
-
-sub run_paragraph {
-        my $s = shift ;
-        #
-        # Account for carriage returns within paragraph (word wrap)
-        # BUT ... if it's within multiple choice and the first char of the line
-        # is a letter followed by white space, we're going to have to break
-        # paragraphs at the line break.
-        #
-        $s =~ s/<line base.+?States">/<charParams l="1" t="1" r="1" b="1"> <\/charParams>/g ;
-        my $ret = '' ;
-        my ( $new, $offset) = ( 0, 0) ;
-        while ( $s =~ m/<charParams[^>]*>(.+?)<\/charParams>(.+)/ms) {
-                $ret .= $1 ;
-                $s = $2 ;
-        }
-        return $ret ;
 }
 
 #
