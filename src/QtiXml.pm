@@ -64,9 +64,9 @@ our $rubric_block_xml_template = '<?xml version="1.0" encoding="utf-8"?>'
 # multiple choice question, not using a shared stimulus: STIMULUS_BLOCK must be set (already in its own div)
 #
 our $mc4_w_stimulus_xml_template = '<?xml version="1.0" encoding="utf-8"?>'
-        . '<assessmentItem title="" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" '
+        . '<assessmentItem xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" '
         . 'toolVersion="1.0" toolName="MSDE/ETS OCR/tesseract" timeDependent="false" '
-        . 'identifier="{{ITEM_MDV_ID}}" '
+        . 'identifier="{{ITEM_MDV_ID}}" title="Migrated MC Item {{ITEM_MDV_ID}}" '
         . 'adaptive="false" '
         . 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
         . 'xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1">'
@@ -84,9 +84,9 @@ our $mc4_w_stimulus_xml_template = '<?xml version="1.0" encoding="utf-8"?>'
         . '</assessmentItem>' ;
 
 our $cr_w_stimulus_xml_template = '<?xml version="1.0" encoding="utf-8"?>'
-        . '<assessmentItem title="" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" '
+        . '<assessmentItem xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" '
         . 'toolVersion="1.0" toolName="MSDE/ETS OCR/tesseract" timeDependent="false" '
-        . 'identifier="{{ITEM_MDV_ID}}" '
+        . 'identifier="{{ITEM_MDV_ID}}" title="Migrated CR Item {{ITEM_MDV_ID}}'
         . 'adaptive="false" '
         . 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
         . 'xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1">'
