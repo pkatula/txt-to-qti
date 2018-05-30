@@ -193,34 +193,6 @@ sub strip_quotes {
         return $s ;
 }
 
-#
-# look for a given identifier in every .qti.xml file in the current directory
-#
-sub find_identifier {
-        my $identifier = shift ;
-        my $some_dir = shift ;
-
-        opendir ( my $dh, $some_dir) || die "Can't opendir $some_dir: $!" ;
-        my @qtixml_files = grep { /\.qti\.xml$/ && -f "$some_dir/$_" } readdir ( $dh) ;
-        closedir $dh ;
-
-        for my $ff ( @qtixml_files) {
-                my $s = get_file_content ( "$some_dir/$ff") ;
-                #
-                # strip off the fancy XML opening and replace it with bare <xml> for parsing
-                $s =~ s/<\?xml[^>]*>/<xml>/ ;
-                my $ob = new XML::Bare ( text => $s) ;
-                my $root = $ob -> parse () ;
-                ( exists $root -> {xml} -> {assessmentItem} -> {identifier} -> {value}) && do {
-                        if ( $root -> {xml} -> {assessmentItem} -> {identifier} -> {value} eq $identifier)  {
-                                return $ff ;
-                        }
-                }
-        }
-        return '-' ;
-}
-
-#
 # consume the XML coming out of OCR
 # Note: This subroutine is not called but was used in some precursor scripts and may still be useful
 #
