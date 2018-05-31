@@ -70,13 +70,13 @@ A stand-alone multiple-choice question with "B" as the correct answer. A picture
 MDVA0001.p:   
 A stimulus that includes a table with data in it from the Census Bureau. This stimulus serves both multiple-choice questions MDV00003 and MDV00004 as well as the constructed response question MDV00005.
 
-MDV00003.o:
+MDV00003.o:    
 A multiple-choice question with "C" as the correct answer, shown on the same screen or page as the stimulus MDVA0001.
 
 MDV00004.o:    
 A multiple-choice question, also based on stimulus MDVA0001, with "D" as the correct response.
 
-MDV00005.o:
+MDV00005.o:    
 A constructed-response question (essay question), shown on the same screen or page as the stimulus MDVA0001.
 
 style.css:   
