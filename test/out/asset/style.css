@@ -181,9 +181,6 @@ td.td_style_1 {
 	/* style applied to all table cells except in header, for additional formatting options */
 	line-height: 105%;
 }
-td.td_foot_1 {
-	font-size: 90%;
-}
 td.td_style_no_border {
 	/* style applied to all table cells except in header, for additional formatting options */
 	border: 0;
