@@ -1,198 +1,202 @@
 p {
-        /* default style for text of items */
-        font-family: "Palatino Linotype","Georgia","Times New Roman","Times","Swiss",serif;
-        font-weight: normal;
-        font-size: 1em;
-        line-height: 110%;
+	/* default style for text of items */
+	font-family: "Palatino Linotype","Georgia","Times New Roman","Times","Swiss",serif;
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 110%;
 }
 div.default {
-        /* stimulus rubricBlock usually placed inside this div */
-        width: 100%;
+	/* stimulus rubricBlock usually placed inside this div */
+	width: 100%;
 }
 div.passage {
-        /* a passage includes at least a paragraph and is part of the stimulus */
-        width: 100%;
-        margin-bottom: 1.00rem;
+	/* a passage includes at least a paragraph and is part of the stimulus */
+	width: 100%;
+	margin-bottom: 1.00rem;
 }
 p.passage_para {
-        /* each paragraph in the stimulus can be classed like this */
-        font-weight: bold;
+	/* each paragraph in the stimulus can be classed like this */
+	font-weight: bold;
 }
 p.stem_paragraph {
-        /* if it's a simple paragraph (or sentence) it's inside this */
-        font-weight: bold;
+	/* if it's a simple paragraph (or sentence) it's inside this */
+	font-weight: bold;
 }
 span.formatted_text {
-        /* wrapper only ... part of ETS export ... don't know why */
-        text-transform: none;
+	/* wrapper only ... part of ETS export ... don't know why */
+	text-transform: none;
 }
 span.text_decoration_underline {
-        /* emphasis words like 'one' or 'most likely' are underlined in 2015 style guide */
-        text-decoration: underline;
+	/* emphasis words like 'one' or 'most likely' are underlined in 2015 style guide */
+	text-decoration: underline;
 }
 span.font_style_italic {
-        /* court cases, names of publications, etc., are italicized */
-        font-style: italic;
+	/* court cases, names of publications, etc., are italicized */
+	font-style: italic;
 }
 p.lead_in {
-        /* paragraph like "Read the information | Study the chart | etc. below" */
-        font-weight: bold;
+	/* paragraph like "Read the information | Study the chart | etc. below" */
+	font-weight: bold;
 }
 p.choice_paragraph {
-        /* 2015 style guide shows option choices for multiple-choice not bold like the prompt */
-        font-weight: normal;
+	/* 2015 style guide shows option choices for multiple-choice not bold like the prompt */
+	font-weight: normal;
 }
 div.prose {
-        /* wrapper */
-        width: 100%;
+	/* wrapper */
+	width: 100%;
 }
 div.stimulus_reference {
-        /* wrapper */
-        width: 100%;
+	/* wrapper */
+	width: 100%;
 }
 div.stimulus_image {
-        /* keep images inside the bounding box */
-        max-width: 100%;
+	/* keep images inside the bounding box */
+	max-width: 100%;
 }
 img {
-        max-width: 100%;
+	max-width: 100%;
 }
 p.center_for_image {
-        /* images are centered, no matter the width */
-        text-align: center;
+	/* images are centered, no matter the width */
+	text-align: center;
 }
 div.excerpt_with_attribution {
-        /* an attributed excerpt, usually attributed to a person but often to a document, like Article II */
-        background: #d2d0d1;
-        border: 1px solid black;
-        margin: 0;
-        padding: 1.00rem;
+	/* an attributed excerpt, usually attributed to a person but often to a document, like Article II */
+	background: #d2d0d1;
+	border: 1px solid black;
+	margin: 0;
+	padding: 1.00rem;
 }
 p.attribution_author {
-        /* author's name, right justified, italicized, even if not a publication, usually preceded by &mdash; */
-        text-align: right;
-        font-style: italic;
+	/* author's name, right justified, italicized, even if not a publication, usually preceded by &mdash; */
+	text-align: right;
+	font-style: italic;
 }
 div.style_newsclip {
-        /* formerly a background image that looks like a newspaper front page */
-        width: 4.5pc;
-        margin-left: 4.00rem;
-        background: sand;
-        padding: 2.00rem 1.00rem 1.00rem 1.00rem;
-        /* top border intended to simulate the previous background image, with padding below it  -- see div.headline_para */
-        border-top: 1px solid black ;
-        border-left: 1px solid black ;
-        border-right: 1px solid black ;
-        border-bottom: 0 ;
+	/* formerly a background image that looks like a newspaper front page */
+	width: 4.5pc;
+	margin-left: 4.00rem;
+	background: sand;
+	padding: 2.00rem 1.00rem 1.00rem 1.00rem;
+	/* top border intended to simulate the previous background image, with padding below it  -- see div.headline_para */
+	border-top: 1px solid black ;
+	border-left: 1px solid black ;
+	border-right: 1px solid black ;
+	border-bottom: 0 ;
 }
 div.clip_footnote {
-        /* must have same margins, padding as news_clip div but be outside the newsclip div with the torn paper background */
-        margin-left: 4.00rem;
-        padding: 2.00rem 1.00rem 1.00rem 1.00rem;
-        width: 4.5pc;
+	/* must have same margins, padding as news_clip div but be outside the newsclip div with the torn paper background */
+	margin-left: 4.00rem;
+	padding: 2.00rem 1.00rem 1.00rem 1.00rem;
+	width: 4.5pc;
 }
 div.style_scroll {
-        /* formerly a background image of a scroll parchment, padding serves to clear the design scrolls on top and bottom */
-        background: ivory;
-        padding: 2.00rem 1.00rem;
+	/* formerly a background image of a scroll parchment, padding serves to clear the design scrolls on top and bottom */
+	background: ivory;
+	padding: 2.00rem 1.00rem;
 }
 p.headline_para {
-        /* optionally add formatting or transformation options for headline paragraph (small caps or all caps?) */
-        text-transform: none;
-        font-weight: bold;
-        font-family: "Bodoni MT","Helvetica Neue","Helvwetica",sans-serif;
-        margin-top: 1.00rem ;
-        margin-left: 1.00rem ;
-        margin-right: 1.00rem ;
-        text-align: center ;
-        border-top: 4px solid black ;
-        padding-top: 1.00rem ;
+	/* optionally add formatting or transformation options for headline paragraph (small caps or all caps?) */
+	text-transform: none;
+	font-weight: bold;
+	font-family: "Bodoni MT","Helvetica Neue","Helvwetica",sans-serif;
+	margin-top: 1.00rem ;
+	margin-left: 1.00rem ;
+	margin-right: 1.00rem ;
+	text-align: center ;
+	border-top: 4px solid black ;
+	padding-top: 1.00rem ;
 }
 p.news_subhead {
-        border-top: 1px solid black ;
-        padding-top: 1.00rem ;
+	border-top: 1px solid black ;
+	padding-top: 1.00rem ;
 }
 p.news_para {
-        /* optionally add style for the text of a newspaper article */
-        font-weight: normal;
+	/* optionally add style for the text of a newspaper article */
+	font-weight: normal;
 }
 span.formatted_line_break::before  {
-        content: ' ';
-        display: block;
+	content: ' ';
+	display: block;
 }
 div.boxed_info {
-        /* information that is boxed off */
-        border: 2px solid black;
-        margin: 0;
-        padding: 1.00rem;
+	/* information that is boxed off */
+	border: 2px solid black;
+	margin: 0;
+	padding: 1.00rem;
 }
 p.title_graf {
-        /* the centered, bold title of a graph, or other diagram ... see caption */
-        text-align: center;
-        text-transform: none;
-        font-weight: 700;
-        padding:0 1.00rem 1.00rem 1.00rem;
+	/* the centered, bold title of a graph, or other diagram ... see caption */
+	text-align: center;
+	text-transform: none;
+	font-weight: 700;
+	padding:0 1.00rem 1.00rem 1.00rem;
 }
 p.section_heading {
-        font-size: 1.25em;
-        font-weight: 600;
-        padding: 1.00rem;
+	font-size: 1.25em;
+	font-weight: 600;
+	padding: 1.00rem;
 }
 li.list_paragraph {
-        /* bullets for Constructed Response items, or any bullets that appear in stimulus */
-        font-weight: bold;
-        margin: 1.50rem;
-        text-indent: -1.50rem;
+	/* bullets for Constructed Response items, or any bullets that appear in stimulus */
+	font-weight: bold;
+	margin: 1.50rem;
+	text-indent: -1.50rem;
 }
 caption {
-        /* title of the table ... should not use title_graf, since caption is required under WCAG */
-        text-align: center;
-        text-transform: none;
-        font-weight: 700;
-        padding:0 1.00rem 1.00rem 1.00rem;
+	/* title of the table ... should not use title_graf, since caption is required under WCAG */
+	text-align: center;
+	text-transform: none;
+	font-weight: 700;
+	padding:0 1.00rem 1.00rem 1.00rem;
 }
 div.table_block {
-        /* tables are confined to a block div that can be further defined */
-        width: 100%;
+	/* tables are confined to a block div that can be further defined */
+	width: 100%;
 }
 table.table_style_1 {
-        /* additional styles to apply to the table itself */
-        border: 1px solid black;
-        border-collapse: collapse;
+	/* additional styles to apply to the table itself */
+	border: 1px solid black;
+	border-collapse: collapse;
 }
 tr.trclass {
-        /* style applies to all table rows */
-        width: 100%;
+	/* style applies to all table rows */
+	width: 100%;
 }
 tr.tr_style_0 {
-        /* style applied to the table row(s) in the table header */
-        width: 100%;
+	/* style applied to the table row(s) in the table header */
+	width: 100%;
 }
 tr.tr_style_1 {
-        /* table rows where table data is found */
-        width: 100%;
+	/* table rows where table data is found */
+	width: 100%;
 }
 td.tdclass {
-        /* style applied to all table cells except those in <thead> */
-        padding: 5px;
-        text-align: left;
+	/* style applied to all table cells except those in <thead> */
+	padding: 5px;
+	text-align: left;
 }
 td.td_style_1 {
-        /* style applied to all table cells except in header, for additional formatting options */
-        line-height: 105%;
+	/* style applied to all table cells except in header, for additional formatting options */
+	line-height: 105%;
+}
+td.td_foot_1 {
+	font-size: 90%;
 }
 td.td_style_no_border {
-        /* style applied to all table cells except in header, for additional formatting options */
-        border: 0;
-        line-height: 105%
+	/* style applied to all table cells except in header, for additional formatting options */
+	border: 0;
+	line-height: 105%
 }
 th.thclass {
-        /* shading, etc., applied to table header */
-        background: #d1d0d2;
-        padding: 5px;
+	/* shading, etc., applied to table header */
+	background: #d1d0d2;
+	padding: 5px;
 }
 th.th_style_1 {
-        /* additional formatting for cells in table header */
-        background: #d1d0d2;
-        text-align: center;
+	/* additional formatting for cells in table header */
+	background: #d1d0d2;
+	text-align: center;
 }
+
