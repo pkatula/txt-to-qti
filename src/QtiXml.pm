@@ -79,7 +79,12 @@ our $mc4_w_stimulus_xml_template = '<?xml version="1.0" encoding="UTF-8"?>'
 	. '{{PROMPT}} {{CHOICES}}'
 	. '</choiceInteraction>'
 	. '</itemBody>'
-	. '<responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct_1.xml" />'
+	. '<responseProcessing xmlns="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
+	. 'xsi:schemaLocation="http://www.imsglobal.org/xsd/apip/apipv1p0/qtiitem/imsqti_v2p1 http://www.imsglobal.org/profile/apip/apipv1p0/apipv1p0_qtiitemv2p1_v1p0.xsd"> '
+	. '<responseCondition><responseIf><match><variable identifier="RESPONSE"/><correct identifier="RESPONSE"/></match>'
+	. '<setOutcomeValue identifier="SCORE"><baseValue baseType="float">1</baseValue></setOutcomeValue></responseIf>'
+	. '<responseElse><setOutcomeValue identifier="SCORE"><baseValue baseType="float">0</baseValue></setOutcomeValue></responseElse>'
+	. '</responseCondition></responseProcessing>'
 	. '</assessmentItem>' ;
 
 our $cr_w_stimulus_xml_template = '<?xml version="1.0" encoding="UTF-8"?>'
