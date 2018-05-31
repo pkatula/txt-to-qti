@@ -927,7 +927,7 @@ sub stimulus_only {
 			$ret .= '</tbody></table></div> ' ;
 
 		} elsif ( $ar_in[$i] =~ m/^TABLE_GENERAL/)  {
-			my $tfoot_exception = 1 ;			# SEE NOTE UNDER FOOTER -- XML hasn't caught up with HTML5 ???
+			my $tfoot_exception = 0 ;			# SEE NOTE UNDER FOOTER -- HTML5 change and vendor disparity ???
 			my ( $caption, $inhead, $inbody, $inrow, $apparent_columns, $max_columns) = ( '', 0, 0, 0, 1, 1) ;
 			$ret .= '<div class="table_block "><table class="table table_style_1 ">' ;
 			$i++ ;
@@ -957,20 +957,24 @@ sub stimulus_only {
 					$ret .= '</tbody>' if ( $tfoot_exception == 0) ;
 					$inbody = 0 ;
 				} elsif ( $ar_in[$i] =~ m/^FOOTER\s+(\S.*)/)  {
+					$ret .= '</tr>' if ( $inrow) ;
+					$inrow = 0 ;
 					if ( $tfoot_exception == 1)  {
 							# important note: We put the tfoot in the last data row of the table
 							# and reserve the caption for the table title, since captions are
 							# required on all data tables in WCAG. This will need to be edited
-							# when published to a form. XML has a problem with tfoot, which was not
+							# when published to a form. Our vendor had a problem with tfoot, which was not
 							# technically allowed after the <tbody> element until HTML 5, and some
-							# XML parsers just haven't caught up yet. If they do, we can process
-							# <tfoot> elements normally, by HTML 5, that is.
-						$ret .= '</tr>' if ( $inrow) ;
-						$inrow = 0 ;
+							# item banks it seems just haven't caught up. If they do, we can process
+							# <tfoot> elements normally, by HTML 5, that is: use $tfoot_exception = 0.
 						$ret .= '<tr><td colspan="'
 							. $max_columns . '" class="tdclass td_style_1 ">'
 							. $1 . '</td></tr></tbody>' ;
 						$inbody = 0 ;
+					} else {
+						$ret .= '<tfoot><tr><td colspan="'
+							. $max_columns . '" class="tdclass td_foot_1 ">'
+							. $1 . '</td></tr></tfoot>' ;
 					}
 					$inbody = 0 ;
 					$inrow = 0 ;
