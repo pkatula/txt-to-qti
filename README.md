@@ -36,6 +36,8 @@ Prompt (optional)
 BUL First bulleted direction or question   
 BUL Second bulleted direction of question   
 
+We programmed our OCR software to recognize an item as a constructed-response question if there were bullets beginning the last few lines of the output and converted those unicode bullets to "BUL" so the packager in this repository (op.manifest.pl) would recognize the text file as the description of a constructed-response item.
+
 Instructions
 ============
 Create a directory for the export package
