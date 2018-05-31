@@ -214,8 +214,7 @@ if ( my $hash_count = keys %error_identifiers)  {
 	# add resource for stylesheet if available
 	#
 	$tmp_resource_block .= interplay_string ( source => $manifest_template{'image_resource_block'},
-		RES_ID_ON_IMPORT => "STY-CSS3-$epochdays-$epochseconds", PATH_TO_IMAGE_JPG => 'asset/style.css')
-			if ( -f 'style.css') ;
+		RES_ID_ON_IMPORT => "STY-CSS3-$epochdays-$epochseconds", PATH_TO_IMAGE_JPG => 'asset/style.css') ;
 
 	#
 	# standalone items
