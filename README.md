@@ -46,7 +46,7 @@ Create a directory for the export package
 In a separate directory on your computer, place the style.css file and the in.csv file. The format of the in.csv file should be:
 * No header row or BOM
 * Column 1: Identifier for a test item (test question)
-* Column 2: The correct answer, incicated by a 1-based integer (use 0 for constructed-response questions)
+* Column 2: The correct answer, indicated by a 1-based integer (use 0 for constructed-response questions)
 * Column 3: A shared stimulus, if one should be attached, or 0 if none
 
 Sample contents of the build directory
