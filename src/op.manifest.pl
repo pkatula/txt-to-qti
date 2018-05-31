@@ -36,7 +36,9 @@ my $csv_in = 'in.csv' ;
 # it will optionally include a style sheet if one if provided (but it SHOULD be provided)
 #
 my @work_queue = () ;
+push @work_queue, 'touch style.css' if ( ! -f 'style.css') ;
 push @work_queue, 'cp style.css out/asset' if ( -f 'style.css') ;
+
 
 #
 # use system calls to create the out directory (and item, etc., subdirectories)
