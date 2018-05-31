@@ -10,7 +10,8 @@
 # held by the authors of this software in jurisdictions outside the U.S.,
 # the authors hereby waive those protections and dedicate the software to
 # the public domain. According to Gnu.org, public domain is compatible
-# with the GNU General Public License (GPL).
+# with the GNU General Public License (GPL). The MSDE makes no warranty
+# with respect to this software and provides it "as is."
 #
 package QtiXml ;
 use strict ;
