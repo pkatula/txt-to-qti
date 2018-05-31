@@ -96,6 +96,24 @@ If all you want to do is edit the content one line at a time, though, you can us
 
 This command will delete line number 2 from the file.
 
+* rebreak,6
+
+Apply a multiple-choice breaking to line 6. Sometimes the OCR software we used thought the multiple choice block was all in one paragraph. This was common when all the lines were the same length, such as:
+
+A milk    
+B tea     
+C water
+
+The OCR would give us something like:
+
+A milk B tea C water   
+
+(thinking it was just a very narrow column for a whole paragraph). Our software requires each multiple-choice option to be on a separate line, so I added the rebreak command to edit.op.pl to apply a more intelligent breaking to a line that I could see was a multiple-choice line by noticing the letters. This could probably be done automatically, but doing it with rebreak wasn't necessary often enough to justify rewriting the layout recognition code.
+
+* join,3
+
+This command will join lines 3 and 4 to create a single paragraph. It is important to note that each answer option in a multiple-choice layout must be on one line, so if the OCR software breaks the line in the middle of a multiple-choice option or in the middle of a paragraph in the stimulus, you need to use join to put all that text on one line.
+
 * ignore,3
 
 Put the directive "IGNORE" in front of line number 3. This will prevent the packager from reading anything on this line or incorporating it into the content package created by op.manifest.pl.
@@ -115,6 +133,26 @@ Remove all styling spans from line number 2.
 * headline,1
 
 Tag line number 1 as the text of a headline. This ordinarily causes a text-transform:uppercase to be added to the classes affecting the words on the entire line.
+
+* ewa,4
+
+Changes the style of lines 4 and 5 to type "Exerpt With Attribution" so that line 4 is a quoted excerpt (see style.css to note that we put these in a box with light gray shading) and line 5 is the attribution, which is styled to be in its own paragraph, right-aligned. IMPORTANT NOTE: This layout specification applies to two lines in the raw text file: the line with the quotation and the line immediately following that as the attribtion.
+
+* box,6
+
+Puts the text on line 6 in a shaded box in the layout by using style.css.
+
+* lead,1
+
+Makes line 1 a "lead-in" paragraph. Our software looked for phrases like "Read the ..." or "Study the ..." or "Look at the ..." and then automatically applied the lead-in class to that initial paragraph, provided that phrase started the paragraph near the beginning of the text file. Often some boxed info or a headline or newsclip would follow on the line immediately following the lead-in.
+
+* box4,5
+
+Beginning with line 5, put the next four paragraphs in a shaded gray box (or whatever you define as the style for this class in style.css). IMPORTANT NOTE: This layout specification affects the next four lines of the raw text file, even though only the first line is specifically tagged. I have created box2 through box6 directives for our purposes, but feel free to extend this or to create similar classes by using the box3 or whatever as a template in QtiXml.pm.
+
+* newsclip,2
+
+Give the paragraph on line 2 a style that indicates it is some sort of newsclip.
 
 See QtiXml.pm
 -------------
