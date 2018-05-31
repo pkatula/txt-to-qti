@@ -82,8 +82,18 @@ A constructed-response question (essay question), shown on the same screen or pa
 style.css:   
 A CSS style sheet, providing styling information about many of the classes used by this suite of scripts.
 
-Run edit.op.pl
---------------
+A note about tables and math
+----------------------------
+We didn't have too many special tables to deal with, and we had absolutely *no* math expressions to encode in MathML. Therefore, you will need to add code if you want to deal with this automatically, as they were not part of our initial migration of items in U.S. government (civics).
+
+I included an example of how you might create a table, using the TABLE_GENERAL layout specification in the text file. It's found in the shared stimulus MDCA0001.p, which I put into the test directory on this repositaory. This is a simple table with a title, header row, six data rows with U.S. population data, and a footer. You can provide layout for tables on your items in a similar manner by using the *vi* command with edit.op.pl.
+
+For math, I now use iTex2MML, which is open source available on GitHub to convert LaTeX to MathML for use in QTI content packages. LaTeX is much more user-friendly than MathML, but the latter is used in QTI. One of these days, IMS Global will allow the use of LaTeX, which has been used by textbook publishers for several years for math expressions, but right now, MathML is required and there are several tools that can help you format a math expression.
+
+Note that the packager here (op.manifest.pl), simply takes whatever it finds on a line and puts it in a paragraph, so if you put MathML on a line, using "inline" or "block" format, the packager will simply copy that to the package, even if it contains MathML.
+
+Run edit.op.pl if you need to check layout or proofread
+-------------------------------------------------------
 Go into the build directory (the one with the files shown above), and run the edit.op.pl script. This will cycle through the item files and then the stimulus files in that directory, based on what it finds in in.csv. You can edit the files by hand, just in case your automated process of OCR, conversion from PDF or Microsoft Word, or whatever you used, didn't work 100 percent.
 
 When edit.op.pl is running, you are shown the contents of the file (syswrite to STDERR), and each line is numbered so that you can use commands to edit individual lines.
