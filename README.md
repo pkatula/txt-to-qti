@@ -86,7 +86,7 @@ A note about tables and math
 ----------------------------
 We didn't have too many special tables to deal with, and we had absolutely *no* math expressions to encode in MathML. Therefore, you will need to add code if you want to deal with this automatically, as they were not part of our initial migration of items in U.S. government (civics).
 
-I included an example of how you might create a table, using the TABLE_GENERAL layout specification in the text file. It's found in the shared stimulus MDVA0001.p, which I put into the test directory on this repositaory. This is a simple table with a title, header row, six data rows with U.S. population data, and a footer. You can provide layout for tables on your items in a similar manner by using the *vi* command with edit.op.pl.
+I included an example of how you might create a table, using the TABLE_GENERAL layout specification in the text file. It's found in the shared stimulus MDVA0001.p, which I put into the test directory on this repository. This is a simple table with a title, header row, six data rows with U.S. population data, and a footer. You can provide layout for tables on your items in a similar manner by using the *vi* command with edit.op.pl.
 
 For math, I now use iTex2MML, which is open source available on GitHub to convert LaTeX to MathML for use in QTI content packages. LaTeX is much more user-friendly than MathML, but the latter is used in QTI. One of these days, IMS Global will allow the use of LaTeX, which has been used by textbook publishers for several years for math expressions, but right now, MathML is required and there are several tools that can help you format a math expression.
 
