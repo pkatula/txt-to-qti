@@ -96,7 +96,7 @@ Run edit.op.pl if you need to check layout or proofread
 -------------------------------------------------------
 Go into the build directory (the one with the files shown above), and run the edit.op.pl script. This will cycle through the item files and then the stimulus files in that directory, based on what it finds in in.csv. You can edit the files by hand, just in case your automated process of OCR, conversion from PDF or Microsoft Word, or whatever you used, didn't work 100 percent.
 
-When edit.op.pl is running, you are shown the contents of the file (syswrite to STDERR), and each line is numbered so that you can use commands to edit individual lines.
+When edit.op.pl is running, you are shown the contents of the file (syswrite to STDERR), and each line is numbered so that you can use commands to edit individual lines. IMPORTANT: Leave all unicode characters (smart quotes, em dashes, etc.) as the unicode characters. As a general rule, do NOT convert them to the HTML codes, such as &amp;mdash;, as this will sometimes ruin the XML in the final package. Some HTML codes are OK, but others are not. Unless you know, leave it in unicode.
 
 Before you do that, you should know that typing *vi* at the prompt will simply open the file in the visual editor, allowing you to correct spelling mistakes.
 
