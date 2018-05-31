@@ -107,7 +107,7 @@ If all you want to do is edit the content one line at a time, though, you can us
 
 * delete,2
 
-This commanWhen edit.op.pl is running, you are shown the contents of the file (syswrite to STDERR), and each line is numbered so that you can use commands to edit individual lines. d will delete line number 2 from the file.
+This command will delete line number 2 from the file.
 
 * rebreak,6
 
