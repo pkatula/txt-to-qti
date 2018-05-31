@@ -1,6 +1,6 @@
 # txt-to-qti
 These Perl scripts can be used for converting raw text files, which might originate from OCR
-processing software, to a QTI content package that they create and you can import into test
+(optical character recognition) software, to a QTI content package created by the scripts that you can import into
 item banks, such as TAO.
 
 The base suite includes a utility (edit.op.pl) to review the content of the text files and
