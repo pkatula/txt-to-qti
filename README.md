@@ -14,8 +14,8 @@ The scripts recognize two item interaction types:
 Text files that define test ITEMS should have the file name IDENT.o, where IDENT is the unique
 identifier for the item. Passages (shared stimuli) should have the file name IDENT.p.
 
-The scripts whould be on the path, and the package QtiXml.pm should be on the Perl search
-path on your system. The op.manifest.pl script requires POSIX, XML::Bare, and Image::Size.
+The scripts should be on the path, and the package QtiXml.pm should be on the Perl search
+path (probably PERL5LIB) on your system. The op.manifest.pl script requires POSIX, XML::Bare, and Image::Size.
 
 Format of Item Files
 ====================
