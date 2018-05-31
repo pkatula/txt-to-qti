@@ -27,6 +27,7 @@ Prompt (optional)
 A Answer choice 1   
 B Answer choice 2   
 C Answer choice 3   
+D Answer choice 4    
 
 Format of Constructed Response Items
 ====================================
@@ -148,7 +149,7 @@ Tag line number 1 as the text of a headline. This ordinarily causes a text-trans
 
 * ewa,4
 
-Changes the style of lines 4 and 5 to type "Exerpt With Attribution" so that line 4 is a quoted excerpt (see style.css to note that we put these in a box with light gray shading) and line 5 is the attribution, which is styled to be in its own paragraph, right-aligned. IMPORTANT NOTE: This layout specification applies to two lines in the raw text file: the line with the quotation and the line immediately following that as the attribtion.
+Changes the style of lines 4 and 5 to type "Exerpt With Attribution" so that line 4 is a quoted excerpt (see style.css to note that we put these in a box with light gray shading) and line 5 is the attribution, which is styled to be in its own paragraph, right-aligned. IMPORTANT NOTE: This layout specification applies to two lines in the raw text file: the line with the quotation and the line immediately following that as the attribution.
 
 * box,6
 
