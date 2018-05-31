@@ -1057,11 +1057,11 @@ sub stimulus_only {
 			# if we haven't broken out of this loop by now, we don't recognize the line, assume it's a simulus paragraph
 			#
 			if ( $now_in_list) { $ret .= '</ul>' ; $now_in_list = 0 ; }
-				$ret .= '<div class="prose "><p class="passage_para ">' . $ar_in[$i] . '</p></div>' ;
-			}
+			$ret .= '<div class="prose "><p class="passage_para ">' . $ar_in[$i] . '</p></div>' ;
 		}
-		if ( $now_in_list) { $ret .= '</ul>' ; $now_in_list = 0 ; }
-		return $ret ;
+	}
+	$ret .= '</ul>' if ( $now_in_list) ;		# now done.
+	return $ret ;
 }
 
 #
