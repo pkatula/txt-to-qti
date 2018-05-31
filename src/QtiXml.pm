@@ -48,7 +48,7 @@ BEGIN {
 #
 # <rubricBlock> for share stimulus
 #
-our $rubric_block_xml_template = '<?xml version="1.0" encoding="utf-8"?>'
+our $rubric_block_xml_template = '<?xml version="1.0" encoding="UTF-8"?>'
 	. '<rubricBlock use="sharedstimulus" view="author candidate proctor scorer testConstructor tutor" '
 	. 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
 	. 'id="{{STIMULUS_MDV_ID}}" '
@@ -62,7 +62,7 @@ our $rubric_block_xml_template = '<?xml version="1.0" encoding="utf-8"?>'
 #
 # multiple choice question, not using a shared stimulus: STIMULUS_BLOCK must be set (already in its own div)
 #
-our $mc4_w_stimulus_xml_template = '<?xml version="1.0" encoding="utf-8"?>'
+our $mc4_w_stimulus_xml_template = '<?xml version="1.0" encoding="UTF-8"?>'
 	. '<assessmentItem xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" '
 	. 'toolVersion="1.0" toolName="MSDE/ETS OCR/tesseract" timeDependent="false" '
 	. 'identifier="{{ITEM_MDV_ID}}" title="Migrated MC Item {{ITEM_MDV_ID}}" '
@@ -82,7 +82,7 @@ our $mc4_w_stimulus_xml_template = '<?xml version="1.0" encoding="utf-8"?>'
 	. '<responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct_1.xml" />'
 	. '</assessmentItem>' ;
 
-our $cr_w_stimulus_xml_template = '<?xml version="1.0" encoding="utf-8"?>'
+our $cr_w_stimulus_xml_template = '<?xml version="1.0" encoding="UTF-8"?>'
 	. '<assessmentItem xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" '
 	. 'toolVersion="1.0" toolName="MSDE/ETS OCR/tesseract" timeDependent="false" '
 	. 'identifier="{{ITEM_MDV_ID}}" title="Migrated CR Item {{ITEM_MDV_ID}}" '
@@ -104,7 +104,7 @@ our $cr_w_stimulus_xml_template = '<?xml version="1.0" encoding="utf-8"?>'
 	. '</assessmentItem>' ;
 
 our %manifest_template = (
-	manifest_wrap => '<?xml version="1.0" encoding="utf-8"?>'
+	manifest_wrap => '<?xml version="1.0" encoding="UTF-8"?>'
 		. '<manifest identifier="MAN-{{NUMERIC_MANIFEST_IDENTIFIER}}" '
 		. 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
 		. 'xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/qtiv2p1_imscpv1p2_v1p0.xsd http://ltsc.ieee.org/xsd/LOM http://www.imsglobal.org/xsd/imsmd_loose_v1p3p2.xsd http://www.imsglobal.org/xsd/imsqti_metadata_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_metadata_v2p1p1.xsd http://www.imsglobal.org/xsd/imsccv1p2/imscsmd_v1p0 http://www.imsglobal.org/profile/cc/ccv1p2/ccv1p2_imscsmd_v1p0.xsd" '
@@ -129,7 +129,7 @@ our %manifest_template = (
 	assessment_resource_block => '<resource identifier="{{RES_ID_ON_IMPORT}}" type="imsqti_section_xmlv2p1" href="{{SECTION_FILE_NAME}}">'
 		. '<metadata><lom xmlns="http://ltsc.ieee.org/xsd/LOM"><lifeCycle><status><source>LOMv1.0</source><value>draft</value></status></lifeCycle></lom></metadata>'
 		. '<file href="{{SECTION_FILE_NAME}}"/>{{DEPENDENCY_IDENTIFIERREFS}}</resource>',
-	assessment_file_wrap => '<?xml version="1.0" encoding="utf-8"?>{{ASSESSMENT_SECTION}}</assessmentSection>',
+	assessment_file_wrap => '<?xml version="1.0" encoding="UTF-8"?>{{ASSESSMENT_SECTION}}</assessmentSection>',
 	assessment_section_wrap => '<assessmentSection identifier="{{RES_SET_RESOURCE_ID_ON_INBOUND}}" title="" '
 		. 'visible="true" fixed="false" keepTogether="false" '
 		. 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '

@@ -927,6 +927,7 @@ sub stimulus_only {
 			$ret .= '</tbody></table></div> ' ;
 
 		} elsif ( $ar_in[$i] =~ m/^TABLE_GENERAL/)  {
+			my $tfoot_exception = 1 ;			# SEE NOTE UNDER FOOTER -- XML hasn't caught up with HTML5 ???
 			my ( $caption, $inhead, $inbody, $inrow, $apparent_columns, $max_columns) = ( '', 0, 0, 0, 1, 1) ;
 			$ret .= '<div class="table_block "><table class="table table_style_1 ">' ;
 			$i++ ;
@@ -951,33 +952,29 @@ sub stimulus_only {
 					$inbody = 1 ;
 					$inrow = 0 ;
 				} elsif ( $ar_in[$i] =~ m/END_BODY/)  {
-					$ret .= '</tbody>' ;
+					$ret .= '</tr>' if ( $inrow) ;
+					$inrow = 0 ;
+					$ret .= '</tbody>' if ( $tfoot_exception == 0) ;
 					$inbody = 0 ;
 				} elsif ( $ar_in[$i] =~ m/^FOOTER\s+(\S.*)/)  {
-					$ret .= '</tr>' if ( $inrow) ;
-					$inbody = 0 ;
-					$inrow = 0 ;
-
-					if ( 1)  {
-						# important note: Change to if(0) if the system to which you are
-						# exporting the item with a table does not support <tfoot> at the
-						# bottom of the table. This was a change introduced with HTML5
-						# and some programs that read XHTML (like some commercial item
-						# banks it seems, based on our experience) have not yet caught
-						# up with this change and still rely on the HTML 4 spec of putting
-						# the <tfoot> element after the <thead> and before the <tbody>.
-						# This is completely illogical to me, but some adjustment may be
-						# required on this line.
-						$ret .= '</tbody><tfoot><tr><td colspan="'
-							. $max_columns . '" class="tdclass td_style_1 ">'
-							. $1 . '</td></tr></tfoot>' ;
-
-					} else {
-						# see note above ... very important
+					if ( $tfoot_exception == 1)  {
+							# important note: We put the tfoot in the last data row of the table
+							# and reserve the caption for the table title, since captions are
+							# required on all data tables in WCAG. This will need to be edited
+							# when published to a form. XML has a problem with tfoot, which was not
+							# technically allowed after the <tbody> element until HTML 5, and some
+							# XML parsers just haven't caught up yet. If they do, we can process
+							# <tfoot> elements normally, by HTML 5, that is.
+						$ret .= '</tr>' if ( $inrow) ;
+						$inrow = 0 ;
 						$ret .= '<tr><td colspan="'
 							. $max_columns . '" class="tdclass td_style_1 ">'
 							. $1 . '</td></tr></tbody>' ;
+						$inbody = 0 ;
 					}
+					$inbody = 0 ;
+					$inrow = 0 ;
+
 			#
 			# generic row
 			#
