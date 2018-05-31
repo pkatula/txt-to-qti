@@ -22,7 +22,7 @@ Format of Item Files
 USE stimulus_identifier (optional, to be included if a shared stimulus is used)   
 Stimulus paragraph 1   
 TABLE definition (or any elements that are part of the item)   
-IMAGE included   
+GRAPHIC svg-eps-or-jpg-file-name.svgz width height This is dummy alt-text.   
 Prompt (optional)    
 A Answer choice 1   
 B Answer choice 2   
