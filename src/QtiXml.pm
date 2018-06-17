@@ -16,8 +16,8 @@
 package QtiXml ;
 use strict ;
 use warnings ;
-use XML::Bare ;
-use Image::Size ;
+# use XML::Bare ;
+# use Image::Size ;
 
 
 BEGIN {
